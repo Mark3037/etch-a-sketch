@@ -1,4 +1,3 @@
-//assign div.container to a variable
 const container = document.querySelector("div.container");
 
 //prompt user to create a grid of divs based on number provided
@@ -38,13 +37,19 @@ function addEvent() {
 
 //assign colored class to divs
 function color(column) {
-    column.classList.add("colored")
+    column.style.background = `rgb(${randNum()}, ${randNum()}, ${randNum()})`
+}
+
+//create random number between 1 and 255
+function randNum() {
+    num = Math.floor(Math.random() * 255);
+    return num
 }
 
 //remove colored class from all divs to clear grid
 function clear() {
-    const colored = document.querySelectorAll("div.colored");
-    colored.forEach(div => div.classList.remove("colored"))
+    const colored = document.querySelectorAll("div.column");
+    colored.forEach(div => div.style.background = "white");
 }
 
 //add click event listener to button.size to create grid
