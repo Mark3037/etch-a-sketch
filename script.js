@@ -1,6 +1,7 @@
 const container = document.querySelector("div.container")
 
 function gridSize() {
+    reset();
     size = prompt("How many rows/columns?");
     if(size > 100) {
         alert("Needs to be lower than 100");
@@ -18,6 +19,13 @@ function gridSize() {
         container.appendChild(newRow);
     }
     addEvent();
+}
+
+function reset() {
+    const columns = document.querySelectorAll("div.column");
+    const rows = document.querySelectorAll("div.row");
+    columns.forEach(column => column.remove());
+    rows.forEach(row => row.remove());
 }
 
 function addEvent() {
