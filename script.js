@@ -1,5 +1,7 @@
+//assign div.container to a variable
 const container = document.querySelector("div.container");
 
+//prompt user to create a grid of divs based on number provided
 function gridSize() {
     reset();
     size = prompt("How many rows/columns?");
@@ -13,7 +15,6 @@ function gridSize() {
         for(let y = 0; y < size; y++) {
             newCol = document.createElement("div");
             newCol.className = "column";
-//            newCol.addEventListener("mouseover", () => color(newCol))
             newRow.appendChild(newCol);
         }
         container.appendChild(newRow);
@@ -21,6 +22,7 @@ function gridSize() {
     addEvent();
 }
 
+//remove grid
 function reset() {
     const columns = document.querySelectorAll("div.column");
     const rows = document.querySelectorAll("div.row");
@@ -28,23 +30,28 @@ function reset() {
     rows.forEach(row => row.remove());
 }
 
+//add mouseover event listener to all divs in the grid
 function addEvent() {
     const columns = document.querySelectorAll("div.column");
     columns.forEach(column => column.addEventListener("mouseover", () => color(column)));
 }
 
+//assign colored class to divs
 function color(column) {
     column.classList.add("colored")
 }
 
+//remove colored class from all divs to clear grid
 function clear() {
     const colored = document.querySelectorAll("div.colored");
     colored.forEach(div => div.classList.remove("colored"))
 }
 
+//add click event listener to button.size to create grid
 const sizeButton = document.querySelector("button.size");
 sizeButton.addEventListener("click", () => gridSize()) ;
 
+//add click event listener to button.clear to clear grid
 const clearButton = document.querySelector("button.clear");
 clearButton.addEventListener("click", () => clear())
 
