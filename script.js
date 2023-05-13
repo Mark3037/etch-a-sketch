@@ -52,7 +52,7 @@ function randNum() {
     return num
 }
 
-//remove colored class from all divs to clear grid
+//change all divs to background white to clear grid
 function clear() {
     const colored = document.querySelectorAll("div.column");
     colored.forEach(div => {
@@ -69,8 +69,10 @@ sizeButton.addEventListener("click", () => gridSize()) ;
 const clearButton = document.querySelector("button.clear");
 clearButton.addEventListener("click", () => clear());
 
+//add click event listener to black button to change color
 const blackButton = document.querySelector("button.black");
 blackButton.addEventListener("click", () => rainbow = false);
 
+//add click event listener to rainbow button to change color
 const rainbowButton = document.querySelector("button.rainbow");
 rainbowButton.addEventListener("click", () => rainbow = true);
