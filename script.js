@@ -42,6 +42,7 @@ function color(column) {
         column.style.background = `rgb(${randNum()}, ${randNum()}, ${randNum()})`
     } else {
         column.style.background = "black";
+        column.style.opacity -= "-.1"
     }
 }
 
@@ -54,7 +55,10 @@ function randNum() {
 //remove colored class from all divs to clear grid
 function clear() {
     const colored = document.querySelectorAll("div.column");
-    colored.forEach(div => div.style.background = "white");
+    colored.forEach(div => {
+        div.style.background = "white";
+        div.style.opacity = "0";
+    });
 }
 
 //add click event listener to button.size to create grid
@@ -70,5 +74,3 @@ blackButton.addEventListener("click", () => rainbow = false);
 
 const rainbowButton = document.querySelector("button.rainbow");
 rainbowButton.addEventListener("click", () => rainbow = true);
-
-//    then maybe have each pass add 10% opacity
