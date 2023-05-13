@@ -35,3 +35,14 @@ button {
     flex: 1;
     background: white;
 }
+
+.colors {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 30px;
+}
+
+.colors button {
+    flex: 0 1 50px;
+}

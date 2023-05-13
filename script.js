@@ -1,4 +1,5 @@
 const container = document.querySelector("div.container");
+let rainbow = false;
 
 //prompt user to create a grid of divs based on number provided
 function gridSize() {
@@ -35,9 +36,13 @@ function addEvent() {
     columns.forEach(column => column.addEventListener("mouseover", () => color(column)));
 }
 
-//assign colored class to divs
+//add color to div based on color choice
 function color(column) {
-    column.style.background = `rgb(${randNum()}, ${randNum()}, ${randNum()})`
+    if(rainbow === true) {
+        column.style.background = `rgb(${randNum()}, ${randNum()}, ${randNum()})`
+    } else {
+        column.style.background = "black";
+    }
 }
 
 //create random number between 1 and 255
@@ -58,8 +63,12 @@ sizeButton.addEventListener("click", () => gridSize()) ;
 
 //add click event listener to button.clear to clear grid
 const clearButton = document.querySelector("button.clear");
-clearButton.addEventListener("click", () => clear())
+clearButton.addEventListener("click", () => clear());
 
-// optional extra credit:
-//    when passing through a div, try changing it to a random rgb value
+const blackButton = document.querySelector("button.black");
+blackButton.addEventListener("click", () => rainbow = false);
+
+const rainbowButton = document.querySelector("button.rainbow");
+rainbowButton.addEventListener("click", () => rainbow = true);
+
 //    then maybe have each pass add 10% opacity
