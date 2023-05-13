@@ -12,22 +12,25 @@ function gridSize() {
         for(let y = 0; y < size; y++) {
             newCol = document.createElement("div");
             newCol.className = "column";
+//            newCol.addEventListener("mouseover", () => color(newCol))
             newRow.appendChild(newCol);
         }
         container.appendChild(newRow);
     }
+    addEvent();
+}
+
+function addEvent() {
+    const columns = document.querySelectorAll("div.column");
+    columns.forEach(column => column.addEventListener("mouseover", () => color(column)))
+}
+
+function color(column) {
+    column.classList.add("colored")
 }
 
 const sizeButton = document.querySelector("button.size");
 sizeButton.addEventListener("click", () => gridSize()) ;
-
-'create hover effect so divs change color when mouse passes over them'
-    'this should create a trail like a pen would'
-
-'make a button on top of the screen'
-    'this button will prompt users for the number of squares for a new grid'
-    'this number should not exceed 100'
-    'the new grid should take up the same amount as the old one'
 
 // optional extra credit:
 //    when passing through a div, try changing it to a random rgb value
