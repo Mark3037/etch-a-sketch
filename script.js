@@ -1,4 +1,4 @@
-const container = document.querySelector("div.container")
+const container = document.querySelector("div.container");
 
 function gridSize() {
     reset();
@@ -30,15 +30,23 @@ function reset() {
 
 function addEvent() {
     const columns = document.querySelectorAll("div.column");
-    columns.forEach(column => column.addEventListener("mouseover", () => color(column)))
+    columns.forEach(column => column.addEventListener("mouseover", () => color(column)));
 }
 
 function color(column) {
     column.classList.add("colored")
 }
 
+function clear() {
+    const colored = document.querySelectorAll("div.colored");
+    colored.forEach(div => div.classList.remove("colored"))
+}
+
 const sizeButton = document.querySelector("button.size");
 sizeButton.addEventListener("click", () => gridSize()) ;
+
+const clearButton = document.querySelector("button.clear");
+clearButton.addEventListener("click", () => clear())
 
 // optional extra credit:
 //    when passing through a div, try changing it to a random rgb value
