@@ -1,4 +1,17 @@
-.column {
-    height: 10;
-    width: 10;
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border: 10px solid black;
+}
+
+.container .row {
+    flex: 1;
+    display: flex;
+}
+
+.row .column {
+    flex: 1;
+    background: white;
 }
